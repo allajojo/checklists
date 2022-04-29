@@ -9,8 +9,9 @@
 import Foundation
 
 struct ChecklistGroup {
-let title: String
-let imageName: String
-    let subtitle: String 
+    var title: String
+    var imageName: String
+    var subtitle: String
+    var items: [ChecklistItem]
 }
 

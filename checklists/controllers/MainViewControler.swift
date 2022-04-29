@@ -8,13 +8,13 @@
 
 import UIKit
 
-class MainViewControler: UITableViewController {
-
+ class MainViewControler: UITableViewController {
+    
     var  groups: [ChecklistGroup] = [
-        ChecklistGroup(title: "Birthdays", imageName: "Birthdays", subtitle: "All Done"),
-        ChecklistGroup(title: "Folder", imageName: "Folder", subtitle: "No Items"),
-        ChecklistGroup(title: "Chores", imageName: "Chores", subtitle: "Remaining"), ChecklistGroup(title: "Groceries", imageName: "Groceries", subtitle: "Remaining")
-       
+        ChecklistGroup(title: "Birthdays", imageName: "Birthdays", subtitle: "All Done", items: [ChecklistItem(isChecked: true, name: "Happy Birthday dear")]),
+        ChecklistGroup(title: "Folder", imageName: "Folder", subtitle: "No Items", items: []),
+        ChecklistGroup(title: "Chores", imageName: "Chores", subtitle: "Remaining", items: []), ChecklistGroup(title: "Groceries", imageName: "Groceries", subtitle: "Remaining", items: [ChecklistItem(isChecked: false, name: "Milk")]),
+        ChecklistGroup(title: "To Do", imageName: "Inbox", subtitle: "3 Remaining", items:  [ChecklistItem(isChecked: true, name: "Wash plates")])
     ]
 
     override func viewDidLoad() {
@@ -25,16 +25,24 @@ class MainViewControler: UITableViewController {
         return groups.count
     }
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-       
+        
         let group: ChecklistGroup = groups[indexPath.row]
         let cell =
             tableView.dequeueReusableCell(withIdentifier: "GroupCell") as! GroupTableViewCell
         cell.titleLable?.text = group.title
-       
+        
         cell.iconView.image = UIImage(named:group.imageName)
         
         cell.subtitleLable.text = group.subtitle
-       
+        
         return cell
+    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "MainToGroupDetails",
+            let vc = segue.destination as? GroupDetailsTableViewController,
+            let indexPath = tableView.indexPathForSelectedRow {
+            vc.title = groups[indexPath.row].title
+            vc.items = groups[indexPath.row].items
+        }
     }
 }

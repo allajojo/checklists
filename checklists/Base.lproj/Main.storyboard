@@ -62,6 +62,7 @@
                                     <outlet property="iconView" destination="Rzu-fH-oV0" id="wPQ-rA-HCF"/>
                                     <outlet property="subtitleLable" destination="gdE-dT-6lD" id="prA-Ff-PHa"/>
                                     <outlet property="titleLable" destination="1er-Y8-19N" id="H7A-Qe-f0P"/>
+                                    <segue destination="5Xt-t9-NJr" kind="show" identifier="MainToGroupDetails" id="NSk-ap-pA0"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -76,7 +77,7 @@
             </objects>
             <point key="canvasLocation" x="1105.7971014492755" y="-102.45535714285714"/>
         </scene>
-        <!--Group Details Table View Controller-->
+        <!--To Do-->
         <scene sceneID="8ff-oz-Ifc">
             <objects>
                 <tableViewController id="5Xt-t9-NJr" customClass="GroupDetailsTableViewController" customModule="checklists" customModuleProvider="target" sceneMemberID="viewController">
@@ -126,6 +127,7 @@
                                     <outlet property="chevronImageView" destination="QLV-W2-SI0" id="gef-ER-tVm"/>
                                     <outlet property="infoImageView" destination="Z8x-xZ-2lU" id="Wdl-yM-DxM"/>
                                     <outlet property="itemNameLabel" destination="GFC-xH-V6W" id="CyE-65-VjA"/>
+                                    <segue destination="i5f-eg-bJ8" kind="show" identifier="GroupDetailsToItemDetails" id="yUg-EJ-ydB"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -134,6 +136,7 @@
                             <outlet property="delegate" destination="5Xt-t9-NJr" id="rUs-Mh-aQe"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" title="To Do" largeTitleDisplayMode="never" id="nSg-02-yg5"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sLy-K6-ZlH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -241,6 +244,7 @@
                             <outlet property="delegate" destination="i5f-eg-bJ8" id="5vV-Fb-POK"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" id="3iq-1r-v69"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9hk-UR-qNL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

@@ -13,15 +13,7 @@ import UIKit
 
 class GroupDetailsTableViewController: UITableViewController {
     
-    let items: [ChecklistItem] = [ChecklistItem(isChecked: true, name: "Walk the dog"),
-                                  ChecklistItem(isChecked: true, name: "Brush teeth"),
-                                  ChecklistItem(isChecked: false, name: "Learn IOS"),
-                                  ChecklistItem(isChecked: true, name: "Soccer proctice"),
-                                  ChecklistItem(isChecked: true, name: "Eat icecream"),
-                                  ChecklistItem(isChecked: true, name: "Dance in the rain")
-        
-                                  
-    ]
+    var items: [ChecklistItem] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,12 +40,22 @@ class GroupDetailsTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let item: ChecklistItem = items[indexPath.row]
-
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ChecklistItemCell", for: indexPath)as! ChecklistItemCellTableViewCell
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ChecklistItemCell", for: indexPath) as! ChecklistItemCellTableViewCell
         cell.itemNameLabel?.text = item.name
         
-       cell.checkImageView.isHidden = !item.isChecked
+        cell.checkImageView.isHidden = !item.isChecked
         return cell
     }
     
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "GroupDetailsToItemDetails",
+            let vc = segue.destination as? AddItemTableViewController,
+            let indexPath = tableView.indexPathForSelectedRow {
+            
+            vc.title = items[indexPath.row].name 
+            
+        }
+    }
 }

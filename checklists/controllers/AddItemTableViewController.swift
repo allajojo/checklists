@@ -10,6 +10,8 @@ import UIKit
 
 class AddItemTableViewController: UITableViewController {
     
+     var item: ChecklistItem?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
