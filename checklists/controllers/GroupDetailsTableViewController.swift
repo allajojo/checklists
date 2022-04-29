@@ -54,7 +54,9 @@ class GroupDetailsTableViewController: UITableViewController {
             let vc = segue.destination as? AddItemTableViewController,
             let indexPath = tableView.indexPathForSelectedRow {
             
-            vc.title = items[indexPath.row].name 
+            vc.title = "Edit item"
+            vc.item = items[indexPath.row]
+            //items[indexPath.row].name
             
         }
     }

@@ -136,13 +136,19 @@
                             <outlet property="delegate" destination="5Xt-t9-NJr" id="rUs-Mh-aQe"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="To Do" largeTitleDisplayMode="never" id="nSg-02-yg5"/>
+                    <navigationItem key="navigationItem" title="To Do" largeTitleDisplayMode="never" id="nSg-02-yg5">
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="plus" catalog="system" id="hol-BD-6xF">
+                            <connections>
+                                <segue destination="i5f-eg-bJ8" kind="show" id="gcI-ig-eSY"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sLy-K6-ZlH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1802.8985507246377" y="-112.5"/>
         </scene>
-        <!--Add Item Table View Controller-->
+        <!--Add  Item-->
         <scene sceneID="gay-am-M61">
             <objects>
                 <tableViewController id="i5f-eg-bJ8" customClass="AddItemTableViewController" customModule="checklists" customModuleProvider="target" sceneMemberID="viewController">
@@ -175,7 +181,7 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="TextField" destination="U5U-lL-jwc" id="ZUy-4Y-wIE"/>
+                                    <outlet property="textField" destination="U5U-lL-jwc" id="ZUy-4Y-wIE"/>
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SwitchTableViewCell" rowHeight="51" id="daL-nj-R8a" customClass="SwitchTableViewCell" customModule="checklists" customModuleProvider="target">
@@ -244,7 +250,7 @@
                             <outlet property="delegate" destination="i5f-eg-bJ8" id="5vV-Fb-POK"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="3iq-1r-v69"/>
+                    <navigationItem key="navigationItem" title="Add  Item" id="3iq-1r-v69"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9hk-UR-qNL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -269,10 +275,14 @@
             <point key="canvasLocation" x="195.6521739130435" y="-102.45535714285714"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="yUg-EJ-ydB"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="Birthdays" width="36" height="36"/>
         <image name="checkmark" catalog="system" width="128" height="114"/>
         <image name="chevron.right" catalog="system" width="96" height="128"/>
         <image name="info.circle" catalog="system" width="128" height="121"/>
+        <image name="plus" catalog="system" width="128" height="113"/>
     </resources>
 </document>
