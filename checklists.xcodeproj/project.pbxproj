@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		E13021E228167FBE00347EB6 /* AddItemTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E13021E128167FBE00347EB6 /* AddItemTableViewController.swift */; };
 		E13021E4281680B200347EB6 /* TextFieldTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E13021E3281680B200347EB6 /* TextFieldTableViewCell.swift */; };
-		E13021E62816829600347EB6 /* NewChecklist.swift in Sources */ = {isa = PBXBuildFile; fileRef = E13021E52816829600347EB6 /* NewChecklist.swift */; };
 		E13021E82816BC9800347EB6 /* SwitchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E13021E72816BC9800347EB6 /* SwitchTableViewCell.swift */; };
 		E13021EA2816BCBE00347EB6 /* DateTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E13021E92816BCBE00347EB6 /* DateTableViewCell.swift */; };
 		E14317ED281041E50013E380 /* GroupTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E14317EC281041E50013E380 /* GroupTableViewCell.swift */; };
@@ -28,7 +27,6 @@
 /* Begin PBXFileReference section */
 		E13021E128167FBE00347EB6 /* AddItemTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddItemTableViewController.swift; sourceTree = "<group>"; };
 		E13021E3281680B200347EB6 /* TextFieldTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldTableViewCell.swift; sourceTree = "<group>"; };
-		E13021E52816829600347EB6 /* NewChecklist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewChecklist.swift; sourceTree = "<group>"; };
 		E13021E72816BC9800347EB6 /* SwitchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchTableViewCell.swift; sourceTree = "<group>"; };
 		E13021E92816BCBE00347EB6 /* DateTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateTableViewCell.swift; sourceTree = "<group>"; };
 		E14317EC281041E50013E380 /* GroupTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupTableViewCell.swift; sourceTree = "<group>"; };
@@ -116,7 +114,6 @@
 			children = (
 				E14D32FE280D9295000F4434 /* ChecklistGroup.swift */,
 				E14317F52812CE0F0013E380 /* ChecklistItem.swift */,
-				E13021E52816829600347EB6 /* NewChecklist.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -198,7 +195,6 @@
 				E14317F92812D0F10013E380 /* ChecklistItemCellTableViewCell.swift in Sources */,
 				E13021E228167FBE00347EB6 /* AddItemTableViewController.swift in Sources */,
 				E13021E82816BC9800347EB6 /* SwitchTableViewCell.swift in Sources */,
-				E13021E62816829600347EB6 /* NewChecklist.swift in Sources */,
 				E13021E4281680B200347EB6 /* TextFieldTableViewCell.swift in Sources */,
 				E14317F42812CD110013E380 /* GroupDetailsTableViewController.swift in Sources */,
 				E13021EA2816BCBE00347EB6 /* DateTableViewCell.swift in Sources */,

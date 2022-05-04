@@ -197,7 +197,7 @@
                                                 <constraint firstAttribute="height" constant="35" id="8NE-iB-5og"/>
                                             </constraints>
                                             <connections>
-                                                <action selector="DidTapSwitch:" destination="daL-nj-R8a" eventType="valueChanged" id="Yns-SD-aQk"/>
+                                                <action selector="switchDidChange:" destination="daL-nj-R8a" eventType="valueChanged" id="Z7y-Pd-cdY"/>
                                             </connections>
                                         </switch>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Remind Me" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bb8-6w-PMh">
@@ -216,6 +216,9 @@
                                         <constraint firstItem="Bb8-6w-PMh" firstAttribute="leading" secondItem="g6j-hb-OkL" secondAttribute="leading" constant="16" id="nag-1e-Tif"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="switchRemind" destination="Leg-GX-EO9" id="J6i-Fk-Bty"/>
+                                </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="DateTableViewCell" rowHeight="148" id="ZT8-cn-GbQ" customClass="DateTableViewCell" customModule="checklists" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="130" width="414" height="148"/>
@@ -243,6 +246,9 @@
                                         <constraint firstItem="vsW-No-jRL" firstAttribute="top" secondItem="AwU-qV-wcY" secondAttribute="top" constant="8" id="U6W-fr-z4g"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="datePicker" destination="uXA-42-mmA" id="PlD-Jq-2cl"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>

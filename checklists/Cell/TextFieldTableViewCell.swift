@@ -12,15 +12,16 @@ class TextFieldTableViewCell: UITableViewCell {
     
     @IBOutlet weak var textField: UITextField!
     // здесь сама добавила
-    let datePicker = UIDatePicker()
+   // let datePicker = UIDatePicker()
 
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
 
         // сама добавила 2 строчки
-        textField.inputView = datePicker
-        datePicker.datePickerMode = .date
+         //   datePicker.datePickerMode = .date
+         //    textField.inputView = datePicker
+
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -29,11 +30,11 @@ class TextFieldTableViewCell: UITableViewCell {
         // Configure the view for the selected state
         
 // здесь сама добавила
-        func getDateFromPicker(){
-            let formatter = DateFormatter()
-            formatter.dateFormat = "dd.MM.yyyy HH:mm"
-            textField.text = formatter.string(from: datePicker.date)
-        }
+     // func getDateFromPicker(){
+       //                let formatter = DateFormatter()
+      //                 formatter.dateFormat = "dd.MM.yyyy HH:mm"
+      //                 textField.text = formatter.string(from: datePicker.date)
+                   }
     }
 
-}
+

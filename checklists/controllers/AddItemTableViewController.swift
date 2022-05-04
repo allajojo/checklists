@@ -26,13 +26,22 @@ class AddItemTableViewController: UITableViewController {
     
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
+        if let item = item {
+            if item.remindMe {
+                return 3
+        } else {
+            return 2
+            }
+        } else {
         return 3
+        }
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         return 1
     }
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.section == 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "TextFieldTableViewCell", for: indexPath) as!
@@ -44,11 +53,19 @@ class AddItemTableViewController: UITableViewController {
         } else if indexPath.section == 1 {
             let  cell = tableView.dequeueReusableCell(withIdentifier: "SwitchTableViewCell", for: indexPath) as!
             SwitchTableViewCell
-          
+            cell.switchRemind.setOn(item?.remindMe ?? false , animated: true)
+            cell.onSwitchChanged = { [weak self] in
+                print("я внутри клоужера")
+                self?.item?.remindMe = cell.switchRemind.isOn
+                tableView.reloadData()
+            }
             return cell
+            
         } else {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "DateTableViewCell", for: indexPath) as!
-            DateTableViewCell 
+            let cell = tableView.dequeueReusableCell(withIdentifier: "DateTableViewCell", for: indexPath) as! DateTableViewCell
+            if let item = item, let date = item.dueDate {
+                cell.datePicker.setDate(date, animated: true)
+            }
             return cell
         }
     }

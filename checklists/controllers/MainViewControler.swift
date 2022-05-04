@@ -11,11 +11,19 @@ import UIKit
  class MainViewControler: UITableViewController {
     
     var  groups: [ChecklistGroup] = [
-        ChecklistGroup(title: "Birthdays", imageName: "Birthdays", subtitle: "All Done", items: [ChecklistItem(isChecked: true, name: "Happy Birthday dear")]),
+        ChecklistGroup(title: "Birthdays", imageName: "Birthdays", subtitle: "All Done", items: [
+            ChecklistItem(isChecked: true, name: "Happy Birthday dear", dueDate: Date(), remindMe:  true)
+        ]),
         ChecklistGroup(title: "Folder", imageName: "Folder", subtitle: "No Items", items: []),
-        ChecklistGroup(title: "Chores", imageName: "Chores", subtitle: "Remaining", items: []), ChecklistGroup(title: "Groceries", imageName: "Groceries", subtitle: "Remaining", items: [ChecklistItem(isChecked: false, name: "Milk")]),
-        ChecklistGroup(title: "To Do", imageName: "Inbox", subtitle: "3 Remaining", items:  [ChecklistItem(isChecked: true, name: "Wash plates")])
+        ChecklistGroup(title: "Chores", imageName: "Chores", subtitle: "Remaining", items: []),
+        ChecklistGroup(title: "Groceries", imageName: "Groceries", subtitle: "Remaining", items: [
+            ChecklistItem(isChecked: false, name: "Milk", dueDate: nil, remindMe: false)
+        ]),
+        ChecklistGroup(title: "To Do", imageName: "Inbox", subtitle: "3 Remaining", items: [
+            ChecklistItem(isChecked: true, name: "Wash plates", dueDate: Date(), remindMe: true)
+        ])
     ]
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
