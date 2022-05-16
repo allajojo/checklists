@@ -7,8 +7,26 @@
 //
 
 import UIKit
+ 
 
- class MainViewControler: UITableViewController {
+
+class MainViewControler: UITableViewController, GroupDetailsProtocol {
+    func didDeleteItem(at index: Int, with groupTitle: String) {
+        for (groupIndex,group) in groups.enumerated() {
+            if group.title == groupTitle {
+                groups[groupIndex].items.remove(at: index) 
+            }
+        }
+    }
+    
+//    func didDeleteItem(at Index: Int, with groupTitle: String )  {
+//        for (groupIndex,group) in groups.enumerated() {
+//            if group.title == groupTitle {
+//                group.items.remove (at: Index)
+//            }
+//        }
+//    }
+  // MARK: - мои данные
     
     var  groups: [ChecklistGroup] = [
         ChecklistGroup(title: "Birthdays", imageName: "Birthdays", items: [
@@ -24,14 +42,16 @@ import UIKit
         ])
     ]
     
-
+// MARK: - жизненный цикл ВЬЮ КОНТРОЛЛЕРА
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
+    // MARK: источник данных для таблицы
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return groups.count
     }
+    // MARK: обработка перехода ( segui)
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let group: ChecklistGroup = groups[indexPath.row]
@@ -50,7 +70,11 @@ import UIKit
             let vc = segue.destination as? GroupDetailsTableViewController,
             let indexPath = tableView.indexPathForSelectedRow {
             vc.title = groups[indexPath.row].title
-            vc.items = groups[indexPath.row].items
+            vc.group = groups[indexPath.row]
+            vc.delegate = self 
         }
     }
+
 }
+
+

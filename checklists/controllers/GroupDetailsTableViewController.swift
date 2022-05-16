@@ -13,33 +13,24 @@ import UIKit
 
 class GroupDetailsTableViewController: UITableViewController {
     
-    var items: [ChecklistItem] = []
+    var group: ChecklistGroup!
+    var delegate: GroupDetailsProtocol?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
-        
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-        
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
     
     // MARK: - Table view data source
-    
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
-        return items.count
+        return group.items.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let item: ChecklistItem = items[indexPath.row]
+        let item: ChecklistItem = group.items[indexPath.row]
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "ChecklistItemCell", for: indexPath) as! ChecklistItemCellTableViewCell
         cell.itemNameLabel?.text = item.name
@@ -55,9 +46,26 @@ class GroupDetailsTableViewController: UITableViewController {
             let indexPath = tableView.indexPathForSelectedRow {
             
             vc.title = "Edit item"
-            vc.item = items[indexPath.row]
+            vc.item = group.items[indexPath.row]
             //items[indexPath.row].name
             
         }
     }
+    
+    // MARK: - обработка делегата таблицы или UITableVIewDelegate
+    override func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+        print("тапнули на клетку \(indexPath.row)")
+    }
+
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        // удаляем данны из массива
+        group.items.remove(at: indexPath.row)
+        // удалить ячейку из самой таблицы
+        tableView.deleteRows(at:[indexPath], with: .automatic)
+        //
+        delegate?.didDeleteItem(at: indexPath.row, with: group.title)
+    }
 }
+
+
+
